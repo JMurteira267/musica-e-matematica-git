@@ -17,18 +17,18 @@ n=(1-beta_disp*cos(pi*(1250)/fs))/(1-beta_disp);
 rho=n-(n^2-1)^1/2;
 
 %Produce Note
-sound_data=sim("apresentacao.slx",4)
-note=sound_data.simout.Data;
-
+%sound_data=sim("apresentacao.slx",6)
+%note=sound_data.simout.Data;
+%note=squeeze(note);
     %Para audio file
-    %{
+    %%{
     sound_data=sim("apresentacao.slx",10)
     note=sound_data.simout.Data;
     note=squeeze(note);
     
 
-    %}
-%note=real(note);
+   %%}
+note=real(note);
 note = note-mean(note);
 note = note/max(abs(note));
 sound(note,fs)
